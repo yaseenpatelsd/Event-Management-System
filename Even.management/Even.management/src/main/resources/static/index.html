@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- ===== AUTH SCREEN ===== -->
+  <div id="authScreen" class="screen">
+    <div class="card">
+      <h1>Event Management</h1>
+      <div class="tabs">
+        <button id="tabLogin" class="tab active" onclick="showTab('login')">Login</button>
+        <button id="tabRegister" class="tab" onclick="showTab('register')">Register</button>
+      </div>
+
+      <!-- Login form -->
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <label>Username</label>
+        <input id="loginUsername" type="text" required />
+
+        <label>Password</label>
+        <input id="loginPassword" type="password" required />
+
+        <button class="btn primary" type="submit">Login</button>
+      </form>
+
+      <!-- Register form -->
+      <form id="registerForm" onsubmit="handleRegister(event)" style="display:none">
+        <label>Username</label>
+        <input id="regUsername" type="text" required />
+
+        <label>Email</label>
+        <input id="regEmail" type="email" required />
+
+        <label>Password</label>
+        <input id="regPassword" type="password" required />
+
+        <label>Confirm Password</label>
+        <input id="regConfirm" type="password" required />
+
+        <button class="btn primary" type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== DASHBOARD SCREEN ===== -->
+  <div id="dashScreen" class="screen" style="display:none">
+    <header class="topbar">
+      <h1>Event Management</h1>
+      <div class="user-box">
+        <span id="currentUser"></span>
+        <button class="btn small" onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Register for an event -->
+      <section class="card">
+        <h2>Register for an Event</h2>
+        <p class="hint">Enter your name and the event ID you want to join.</p>
+        <form onsubmit="handleEventRegister(event)">
+          <div class="row">
+            <div class="col">
+              <label>Your Name</label>
+              <input id="eventRegName" type="text" required />
+            </div>
+            <div class="col">
+              <label>Event ID</label>
+              <input id="eventRegId" type="number" required />
+            </div>
+          </div>
+          <button class="btn primary" type="submit">Register for Event</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Session</h2>
+        <label>Your JWT Token</label>
+        <textarea id="tokenView" rows="3" readonly></textarea>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

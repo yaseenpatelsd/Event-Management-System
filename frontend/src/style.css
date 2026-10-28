@@ -1,0 +1,373 @@
+/* ============================================================
+   Global styles — clean, restrained, close to the reference design.
+   ============================================================ */
+:root {
+  --bg: #f2f2f2;
+  --card: #fafafa;
+  --border: #d6d6d6;
+  --border-strong: #bcbcbc;
+  --text: #222;
+  --muted: #6b6b6b;
+  --btn: #e6e6e6;
+  --btn-hover: #dadada;
+  --link: #0645ad;
+  --header-bg: #ffffff;
+  --error: #b00020;
+  --ok: #1b5e20;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ---------- Auth / single-card screens ---------- */
+.center-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 32px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.card.wide {
+  max-width: 920px;
+}
+
+h1.title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+h2.section-title {
+  font-size: 22px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+h3.sub-title {
+  font-size: 17px;
+  margin: 22px 0 10px;
+}
+
+/* ---------- App shell (logged-in pages) ---------- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.topbar .brand {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nav button {
+  border: 1px solid transparent;
+  background: none;
+  padding: 8px 14px;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.nav button:hover {
+  background: #f0f0f0;
+}
+
+.nav button.active {
+  background: var(--btn);
+  border-color: var(--border-strong);
+  font-weight: bold;
+}
+
+.topbar .user-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+/* ---------- Forms ---------- */
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  font-size: 14px;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #888;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 84px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  background: var(--btn);
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--btn-hover);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn.small {
+  width: auto;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.btn.outline {
+  background: #fff;
+}
+
+.btn.link-btn {
+  width: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--link);
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.btn.danger {
+  color: var(--error);
+}
+
+/* ---------- Links ---------- */
+.link {
+  color: var(--link);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.link-row {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #f0f0f0;
+  font-weight: bold;
+}
+
+.actions-cell {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.row-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Lists / misc ---------- */
+.registrant-list {
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.registrant-list li {
+  padding: 11px 14px;
+  background: #fafafa;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+}
+
+.registrant-list li:last-child {
+  border-bottom: none;
+}
+
+.error {
+  color: var(--error);
+  font-size: 13px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error.left {
+  text-align: left;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 14px;
+  padding: 14px 0;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: #eee;
+}
+
+.badge.active {
+  background: #e6f4ea;
+  border-color: #a5cfa9;
+  color: var(--ok);
+}
+
+.badge.dilist {
+  background: #fdecea;
+  border-color: #e6b3b0;
+  color: var(--error);
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 999;
+  max-width: 340px;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background: #2e7d32;
+}
+
+.toast.error {
+  background: #c62828;
+}
+
+.toast.info {
+  background: #37474f;
+}
